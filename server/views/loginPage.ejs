@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="container">
+        <div class="main">
+            <% 
+            const user = res.locals.loggedInUser;
+            if(user === null){ %>
+            <form action="/login" method="POST">
+                <div class="form__group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form__group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                </div>
+                <div class="form__group">
+                    <input type="submit" value="Login" class="submit__btn">
+                </div>
+            </form>
+            <% }else{ %>
+                <p>Already Logged In!</p>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

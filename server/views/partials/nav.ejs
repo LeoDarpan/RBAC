@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <% const user = res.locals.loggedInUser; if(user === null){ %>
+                <a href="/signup">Sign Up</a> / <a href="/login">Log In</a>
+            <% }else{ %>
+                <p>Welcome <%= user.email %> !</p>
+            <% } %>
+        </li>
+    </ul>
+</nav>
